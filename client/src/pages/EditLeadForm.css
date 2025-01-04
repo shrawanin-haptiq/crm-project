@@ -1,0 +1,32 @@
+ /* Sidebar container positioned to the right */
+.edit-lead-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0; /* Position it to the right side */
+    height: 100%;
+    width: 300px;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%); /* Initially hide off-screen */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* When sidebar is active (open) */
+  .edit-lead-sidebar.active {
+    transform: translateX(0); /* Slide the sidebar in from the right */
+  }
+  
+  .sidebar {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  

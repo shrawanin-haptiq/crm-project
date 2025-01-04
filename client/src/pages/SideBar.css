@@ -1,0 +1,113 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Ensure the body and html elements take up the full height */
+        overflow: hidden; /* Prevent any scrolling */
+    }
+    
+    body {
+        background-color: #f4f6f9; /* Light gray for the entire page */
+    }
+    .sidebar {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        background-color: #fff;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        padding-top: 20px;
+    }
+    .sidebar h1{
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 10px;
+        background: linear-gradient(to right, #cddbe1, hsl(249, 82%, 60%));
+        color: #000;
+        border-radius: 10px;
+        font-size: 20px;
+        
+        color: white;
+        text-transform: none;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    a{
+        
+        text-decoration: none;
+        color: white;
+    
+    }
+    .sidebar .nav-link {
+        color: #000;
+        padding: 12px 15px;
+        border-radius: 8px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .Link{
+        text-decoration: none;
+    }
+    .sidebar .nav-link:hover {
+        background: linear-gradient(to right, #cddbe1, hsl(249, 82%, 60%));
+        color: #fff;
+    }
+   
+.content {
+    margin-left: 250px;
+    background-color: #eff3f5;
+    padding: 20px;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Enable vertical scrolling for the content */
+}
+
+    .navbar {
+        margin-left: 250px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius:0px 0px 0px 20px; /* Curved sides for the navbar */
+        /* padding: 0px 0px 0px -200px; */
+       
+     }
+     .navBar{
+        margin-left: 400px;
+        
+     }
+
+    .dashboradAddLeadBtnWrapper{
+        padding: 20px;
+        background-color: white;
+        justify-items: right;
+        
+        
+    }
+    #navbarNav{
+        margin-left: 1079px;
+    }
+    .dashboradAddLeadBtnWrapper button{
+        padding: 10px;
+        background-color: white;
+    }
+    @media (max-width: 991px) {
+        .sidebar {
+            position: static;
+            width: 100%;
+            height: auto;
+        }
+        .content {
+            margin-left: 0;
+        }
+        .navbar {
+            margin-left: 0;
+        }
+
+
+            
+    }

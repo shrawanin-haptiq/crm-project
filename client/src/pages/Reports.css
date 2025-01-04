@@ -1,0 +1,48 @@
+.reportWrraperBtn{
+    display: flex;
+}
+
+.reportWrraperBtn button{
+    /* border: 1px solid black; */
+    width: 300px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+ 
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .reportWrraperBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reportWrraperBtn .btn {
+    width: 80%; /* Buttons take up most of the width */
+    max-width: 400px; /* Limit maximum width */
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff; /* Neutral button color */
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .reportWrraperBtn .btn:hover {
+    background-color: #e9ecef; /* Slight hover effect */
+    transform: translateY(-2px); /* Hover animation */
+  }
+  
+  .reportWrraperBtn .btn:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  

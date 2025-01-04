@@ -1,0 +1,100 @@
+:root {
+    --accent-color: #8672FF;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: var(--base-color);
+    margin: auto;
+  }
+  
+  .loginLeft {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  
+  form {
+    width: min(400px, 100%);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  form > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  form label {
+    flex-shrink: 0;
+    height: 50px;
+    width: 100px;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 2px;
+  }
+  
+  form input ,select {
+    flex-grow: 1;
+    height: 50px;
+    padding: 1em;
+    border-radius: 0 10px 10px 0;
+    border: 2px solid var(--input-color);
+    background-color: var(--input-color);
+  }
+  
+  form button {
+    margin-top: 10px;
+    padding: 0.85em 4em;
+    border: none;
+    border-radius: 1000px;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  
+  .loginRightSide {
+   
+    background-image: url("https://png.pngtree.com/png-vector/20220811/ourmid/pngtree-crm-software-isometric-vector-illustration-png-image_5840485.png");
+    background-size: cover;
+    background-position: center;
+  }
+  
