@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route  } from "react-router-dom";
 import SideBar from "./pages/SiderBar";
 import Dash from "./pages/Dash";
 import Login from "./components/Login";
@@ -14,6 +14,8 @@ import Setting from "./pages/Setting";
 import ReportByDate from "./pages/ReportByDate";
 import ReportByStatus from "./pages/ReportByStatus";
 import ReportByServiceType from "./pages/ReportByServiceType";
+import TodaysLeads from "./pages/TodaysLeads";
+import GetUsers from "./pages/GetUsers";
 const App = () => {
   return (
     <Routes>
@@ -22,6 +24,7 @@ const App = () => {
       <Route path="/register" element={<Register />} />
 
       {/* Admin Route with Sidebar */}
+      
       <Route
         path="/"
         element={
@@ -44,7 +47,13 @@ const App = () => {
         <Route path="reports/date" element={<ReportByDate />} /> {/* Report by Date page */}
         <Route path="reports/ByStatus" element={<ReportByStatus />} /> {/* Report by Date page */}
         <Route path="reports/ByServiceType/" element={<ReportByServiceType/>} /> {/* Report by Date page */}
+        <Route path="reports/TodaysLeads/" element={<TodaysLeads/>} /> {/* Report by Date page */}
+        <Route path="setting/users" element={<GetUsers/>} /> Report by Date page
+        <Route path="setting/users/create-user" element={<Register/>} /> Report by Date page
 
+
+        setting/users
+        /setting/users
          
         <Route path="/edit/:id" element={<EditLead />} />
         
@@ -60,7 +69,7 @@ const App = () => {
        <Route path="reports/date" element={<ReportByDate />} /> {/* Reports page */}
 
 
-        
+        z
     </Routes>
   );
 };

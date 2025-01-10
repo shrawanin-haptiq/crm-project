@@ -20,9 +20,10 @@
   
   .wrapper {
     display: flex;
-    height: 100vh;
+    height: 70vh;
     background-color: var(--base-color);
     margin: auto;
+    margin-top: 30px;
   }
   
   .loginLeft {

@@ -66,6 +66,7 @@
     padding: 20px;
     height: 100vh; /* Full height */
     overflow-y: auto; /* Enable vertical scrolling for the content */
+    /* overflow-x: auto; */
 }
 
     .navbar {
@@ -95,17 +96,34 @@
         padding: 10px;
         background-color: white;
     }
+    
+    
+    
+    .sidebar .nav-link:hover {
+        background: linear-gradient(to right, #cddbe1, hsl(249, 82%, 60%));
+        color: #fff;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+        align-items: center;
+    }
+    .sidebar .nav-link i {
+        margin-right: 10px; /* Space between the icon and text */
+    }
+      
     @media (max-width: 991px) {
         .sidebar {
             position: static;
-            width: 100%;
-            height: auto;
+            width: 20%;
+            margin-top: -10px;
         }
         .content {
             margin-left: 0;
         }
         .navbar {
             margin-left: 0;
+            
         }
 
 

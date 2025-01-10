@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { generateToken } from "../utils/jwt.js";
 
- import { findUserByUsername, createUser   } from "../models/UserModel.js";
+ import { findUserByUsername, createUser  , getAllUsers  } from "../models/UserModel.js";
  
 export const registerUser = async (req, res) => {
   const { username, email, password, role } = req.body;
@@ -56,4 +56,16 @@ export const loginUser = async (req, res) => {
 };
 
  
+ 
+
+export const getUser = async (req, res) => {
+  try {
+    const stats = await getAllUsers();
+    res.json(stats);
+    console.log(stats)
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch user", error: error.message });
+  }
+};
+
  

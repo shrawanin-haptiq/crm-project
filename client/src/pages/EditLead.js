@@ -66,8 +66,11 @@ const EditLead = () => {
     const updatedLead = { ...formData, follow_up_date: formattedDate };
 
     console.log("Submitting lead update with:", updatedLead);
+    if (window.confirm("Are you sure you want to edit this lead?")) {
+
     dispatch(updateLead({ id, ...updatedLead }));
     navigate("/");
+    }
   };
 
   if (error) {

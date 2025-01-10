@@ -1,0 +1,26 @@
+ /* Simple box for stats */
+.stat-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+   
+  }
+  
+  .stat-box h5 {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .stat-box h2 {
+    font-size: 32px;
+    color: #007bff;
+  }
+  /* Optional: Customizing the canvas (Bar/Pie) directly */
+.chart-container canvas {
+    max-width: 100%;      /* Ensure it scales with container */
+    width: 90% !important;  /* Force canvas to always be 100% of the container */
+    height: 100% !important; /* Force canvas height to match container height */
+  }

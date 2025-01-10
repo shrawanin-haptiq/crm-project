@@ -45,7 +45,7 @@ const ReportByServiceType = () => {
             onChange={(e) => setServiceType(e.target.value)}
           >
             <option value="">Select a service type</option>
-            <option value="Web Development">Web Development</option>
+            <option value="Website Development">Web Development</option>
             <option value="SEO">SEO</option>
             <option value="Digital Marketing">Digital Marketing</option>
             <option value="Consulting">Consulting</option>

@@ -190,7 +190,8 @@ export const updateLead = (lead) => async (dispatch) => {
 export const UPDATE_LEAD_STATUS_REQUEST = "UPDATE_LEAD_STATUS_REQUEST";
 export const UPDATE_LEAD_STATUS_SUCCESS = "UPDATE_LEAD_STATUS_SUCCESS";
 export const UPDATE_LEAD_STATUS_FAILURE = "UPDATE_LEAD_STATUS_FAILURE";
-
+export const ASSIGN_USER_SUCCESS = 'ASSIGN_USER_SUCCESS'
+export const ASSIGN_USER_FAILURE = 'ASSIGN_USER_FAILURE'
 // Action to update only the lead's status
 export const updateLeadStatus = (id, lead_status) => async (dispatch) => {
   dispatch({ type: "UPDATE_LEAD_STATUS_REQUEST" });
@@ -235,6 +236,27 @@ export const getStats = () => async (dispatch, getState) => {
     dispatch({
       type: LEAD_ERROR,
       payload: error.response?.data?.message || 'Failed to fetch stats',
+    });
+  }
+};
+
+
+export const updateLeadAssignedUser = (leadId, userId) => async (dispatch) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:5000/api/leads/${leadId}/assign`,
+      { userId } // Sending userId in the request body
+    );
+
+    dispatch({
+      type: ASSIGN_USER_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.error("Error assigning user:", error);
+    dispatch({
+      type: ASSIGN_USER_FAILURE,
+      payload: error.message,
     });
   }
 };

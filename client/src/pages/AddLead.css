@@ -1,89 +1,55 @@
- /* AddLead.css */
+ AddLead.css
+ /* Input field styling - Bottom Border Only */
+.form-control {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  height: 60px;
+  box-shadow: none; /* Remove shadow */
+}
 
-/* General container styling */
-.formContainer {
-    padding: 80px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
-   justify-items: center;
-  }
-   
-  /* Header styling */
-  h2 {
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Input field styling */
-  .contactUsFormInput {
-    margin-bottom: 30px;
-  }
-  
-  .form-control {
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    padding: 15px; /* Updated padding for better spacing */
-    font-size: 14px;
-    height: 60px;
-  }
-  
-  .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-  }
-  
-  /* Dropdown styling */
-  .form-select {
-    padding: 15px; /* Consistent padding with other inputs */
-    border-radius: 4px;
-    height: 60px;
-    font-size: 14px;
-    border: 1px solid #ced4da;
-  }
-  
-  .form-select:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-  }
-  
-  /* Button styling */
-  .btn {
-    margin: 20px auto;
-    display: block;
-    font-size: 16px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-  }
-  
-  /* Textarea styling */
-  textarea {
-    resize: none;
-    font-size: 14px;
-    padding: 15px; /* Updated padding for consistency */
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-  }
-  
-  .headingDivWrapper {
-    padding: 20px;
-    background-color: white;
-    text-align: center;
-    border-radius: 10px;
-  }
-  
+.form-control:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
+/* Dropdown (select) styling with Bottom Border */
+.form-select {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  height: 60px;
+  box-shadow: none; /* Remove shadow */
+}
+
+.form-select:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
+/* Textarea styling - Bottom Border Only */
+textarea {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  resize: none; /* Prevent resizing */
+  box-shadow: none; /* Remove shadow */
+}
+
+textarea:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .col-md-6, .col-md-10 {
@@ -94,5 +60,64 @@
     .btn-lg {
       width: 100%;
     }
+    .formContainer {
+      padding: 20px;
+      
+    }
   }
+
+  /* Input field styling - Bottom Border Only */
+.form-control {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  height: 60px;
+  box-shadow: none; /* Remove shadow */
+  border-radius: 10px;
+}
+
+.form-control:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
+/* Dropdown (select) styling with Bottom Border */
+.form-select {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  height: 60px;
+  box-shadow: none; /* Remove shadow */
+  border-radius: 10px;
+
+}
+
+.form-select:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
+/* Textarea styling - Bottom Border Only */
+textarea {
+  border: none;
+  border-bottom: 2px solid #ced4da; /* Bottom border only */
+  border-radius: 0; /* Remove border radius */
+  padding: 15px; /* Consistent padding */
+  font-size: 14px;
+  resize: none; /* Prevent resizing */
+  box-shadow: none; /* Remove shadow */
+}
+
+textarea:focus {
+  border-bottom-color: #007bff; /* Change bottom border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: none; /* Prevent box shadow on focus */
+}
+
   

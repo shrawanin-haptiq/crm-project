@@ -5,8 +5,11 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
  export const USER_ERROR = "USER_ERROR";
-export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+ 
 export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
+export const FETCH_USERS_SUCCESS ='FETCH_USERS_SUCCESS'
+export const ASSIGN_USER_SUCCESS = 'ASSIGN_USER_SUCCESS'
+export const ASSIGN_USER_FAILURE = 'ASSIGN_USER_FAILURE'
 // API Base URL (Centralized for easier updates)
 const API_BASE_URL = 'http://localhost:5000/api/auth';
 
@@ -41,3 +44,39 @@ dispatch({ type: LOGIN_SUCCESS, payload: token });
 };
  
  
+export const getUsers = () => async (dispatch, getState) => {
+  try {
+    
+    const response = await axios.get(` http://localhost:5000/api/auth/users` );
+  
+    dispatch({
+      type: FETCH_USERS_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type:  USER_ERROR,
+      payload: error.response?.data?.message || 'Failed to fetch stats',
+    });
+  }
+};
+
+
+ 
+
+export const updateLeadAssignedUser = (leadId, userId) => async (dispatch) => {
+  try {
+    const response = await axios.put(`http://localhost:5000/api/auth/${leadId}/assign/${userId}`);
+    
+    dispatch({
+      type: ASSIGN_USER_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.error("Error assigning user:", error);
+    dispatch({
+      type: ASSIGN_USER_FAILURE,
+      payload: error.message,
+    });
+  }
+};

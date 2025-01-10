@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import { checkDbConnection } from "./config/db.js";
  import leadRoutes from "./routes/leadRoutes.js "
-//  import {authorize }from "./middlewares/authMiddleware.js"
- import cors from "cors"
+ 
+   import cors from "cors"
  
 
 checkDbConnection();
@@ -22,5 +22,6 @@ app.use("/api/leads/:id", leadRoutes);
 app.use("/api/leads/:id/status", leadRoutes);
 
 app.use("api/leads" , leadRoutes)
+ 
  const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

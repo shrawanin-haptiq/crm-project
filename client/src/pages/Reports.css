@@ -1,5 +1,8 @@
 .reportWrraperBtn{
-    display: flex;
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next row */
+  justify-content: space-between; /* Ensures spacing between buttons */
+  gap: 20px; /* Adds spacing between rows and columns */
 }
 
 .reportWrraperBtn button{
@@ -8,7 +11,9 @@
     padding: 30px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: none;
 }
+
 
  
   
@@ -19,22 +24,12 @@
     margin-bottom: 2rem;
   }
   
-  .reportWrraperBtn {
+  /* .reportWrraperBtn {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    
   }
-  
-  .reportWrraperBtn .btn {
-    width: 80%; /* Buttons take up most of the width */
-    max-width: 400px; /* Limit maximum width */
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #ffffff; /* Neutral button color */
-    transition: background-color 0.3s, transform 0.2s;
-  }
+  */
   
   .reportWrraperBtn .btn:hover {
     background-color: #e9ecef; /* Slight hover effect */

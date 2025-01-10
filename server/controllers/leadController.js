@@ -1,4 +1,5 @@
  import { createLead, getLeads, deleteLead ,getStats, getLeadsByUserId} from "../models/leadModel.js";
+ import { sendEmailToCustomer } from './emailService.js';
 
  // leadController.js
 import { findUserByRole } from "../models/leadModel.js";
@@ -6,6 +7,7 @@ import { findUserByRole } from "../models/leadModel.js";
 export const addLead = async (req, res) => {
   try {
     const leadData = req.body;
+    const { full_name, email } = req.body;
 
     // Determine the role based on the service type
     let role;
@@ -13,14 +15,27 @@ export const addLead = async (req, res) => {
       role = "Digital_Marketing_Team";
     } else if (leadData.serviceType === "Website Development") {
       role = "Website_Development_Team";
-    } else {
+    }
+    else if (leadData.serviceType === "Search engine optimization") {
+      role = "SEO_Team";
+    } else if (leadData.serviceType === "Social Media Management"){
+      role ="Social_Media_Management_Team";
+    }else if (leadData.serviceType === "Business Needs"){
+      role ="Business_Needs_Team";
+    }
+    else if (leadData.serviceType === "Company Insights"){
+      role ="Company_Insights_Team";
+    }
+    else if (leadData.serviceType === "Other"){
+      role ="Manager";
+    }
+    else {
       console.log("Invalid Service Type:", leadData.serviceType);
       return res.status(400).json({ message: "Invalid service type." });
     }
     console.log("Determined Role:", role);
     
-
-    // Fetch a user with the specified role
+ 
     const assignedUser = await findUserByRole(role);
     if (!assignedUser) {
       return res.status(404).json({ message: `No users found for the role: ${role}` });
@@ -32,10 +47,25 @@ export const addLead = async (req, res) => {
     // Create the lead and assign it to the fetched user
     const newLead = await createLead(leadData, assignedUser.id);
 
+    // const assignedUsers = await findUserByRole(role);
+    // if (!assignedUsers || assignedUsers.length === 0) {
+    //   return res.status(404).json({ message: `No users found for the role: ${role}` });
+    // }
+
+    // // Pick a random user from the list of users
+    // const randomUser = assignedUsers[Math.floor(Math.random() * assignedUsers.length)];
+    // console.log("Assigned User:", randomUser); // Check the randomly selected user
+    
+    // // Create the lead and assign it to the selected user
+    // const newLead = await createLead(leadData, randomUser.id);
+
+    if (email) {
+      await sendEmailToCustomer(email, full_name);
+    }
     res.status(201).json({
       message: "Lead added successfully!",
       lead: newLead,
-      assignedTo: assignedUser.username,
+      assignedTo:  randomUser.username,
     });
   } catch (error) {
     console.error("Error adding lead:", error);
@@ -78,13 +108,13 @@ export const getAllLeads = async (req, res) => {
 
     let leads  
     // const leads = await   getLeads(); // Get all leads from the database
-    if(req.user.role === "Admin" || "Manager"){ 
+    if(req.user.role === "Admin"  ){ 
     leads  = await   getLeads(); 
       
        
 
 
-    }else if(req.user.role === "Digital_Marketing_Team"){
+    }else if(req.user.role === "Digital_Marketing_Team" || "Website_Development_Team"){
       // console.log("UserIdControle:",req);
       console.log("getAllLeads Controller: ",req.user.userId);
       
@@ -452,5 +482,39 @@ export const getLeadStats = async (req, res) => {
     res.json(stats);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch stats", error: error.message });
+  }
+};
+
+
+
+ 
+export const assignUserToLead = async (req, res) => {
+  const { leadId } = req.params; // Extract leadId from request parameters
+  const { userId } = req.body;  // Extract userId from request body
+
+  console.log("Lead ID:", leadId, "User ID:", userId);
+
+  try {
+    // Check if the lead exists
+    const leadCheckQuery = `SELECT * FROM leads WHERE id = $1`;
+    const leadCheckResult = await pool.query(leadCheckQuery, [leadId]);
+
+    if (leadCheckResult.rows.length === 0) {
+      return res.status(404).json({ message: "Lead not found" });
+    }
+
+    // Update the lead with the assigned user ID
+    const updateQuery = `
+      UPDATE leads
+      SET assigned_user_id = $1
+      WHERE id = $2
+      RETURNING *;
+    `;
+    const { rows } = await pool.query(updateQuery, [userId, leadId]);
+console.log(rows)
+    res.status(200).json({ message: "User assigned successfully", lead: rows[0] });
+  } catch (error) {
+    console.error("Error assigning user to lead:", error);
+    res.status(500).json({ message: "Error assigning user to lead", error });
   }
 };

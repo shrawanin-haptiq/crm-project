@@ -55,9 +55,10 @@ export const createLead = async (leadData, assignedUserId) => {
       budget,
       notes,
       follow_up_date,
+      partnerreferralemail,
       assigned_user_id
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
+      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13 , $14
     ) RETURNING *;
   `;
 
@@ -65,15 +66,16 @@ export const createLead = async (leadData, assignedUserId) => {
     leadData.fullName,
     leadData.email,
     leadData.phone,
-    leadData.companyName,
-    leadData.jobTitle,
+    leadData.companyName || null,
+    leadData.jobTitle || null,
     leadData.leadSource,
     leadData.leadStatus,
     leadData.priority,
     leadData.serviceType,
-    leadData.budget,
-    leadData.notes,
-    leadData.followUpDate,
+    leadData.budget || null,
+    leadData.notes || null,
+    leadData.followUpDate || null,
+    leadData.partnerReferralEmail || null,
     assignedUserId,
   ];
 
@@ -97,12 +99,13 @@ export const createLead = async (leadData, assignedUserId) => {
     const query = `
     SELECT leads.id, leads.full_name, leads.email, leads.phone, leads.company_name, 
            leads.job_title, leads.lead_source,leads.lead_status, leads.notes, leads.follow_up_date, 
-           leads.service_type, leads.assigned_user_id, users.username
+           leads.service_type, leads.assigned_user_id, leads  .created_at ,users.username
     FROM leads
     LEFT JOIN users ON leads.assigned_user_id = users.id
   `;
     
     const { rows } = await pool.query(query);
+   
     return rows; // Return the leads data
   };
 
@@ -113,13 +116,13 @@ export const createLead = async (leadData, assignedUserId) => {
       const query = `
          SELECT leads.id, leads.full_name, leads.email, leads.phone, leads.company_name, 
        leads.job_title, leads.lead_source, leads.lead_status, leads.notes, leads.follow_up_date, 
-       leads.service_type, leads.assigned_user_id, users.username
+       leads.service_type, leads.assigned_user_id, leads.created_at , users.username
 FROM leads
 LEFT JOIN users ON leads.assigned_user_id = users.id
 WHERE leads.assigned_user_id = $1;
       `;
       const { rows } = await pool.query(query, [userId]);
-      // console.log("==",rows)
+      console.log("==",rows)  
       return rows; // Return the leads data
     } catch (error) {
       console.error("Error fetching leads:", error);

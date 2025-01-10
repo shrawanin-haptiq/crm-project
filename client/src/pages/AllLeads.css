@@ -27,6 +27,8 @@
     font-size: 16px;
     text-transform: uppercase;
     padding: 20px;
+    background-color: #e9e8e8;
+    
   }
   
   .table tbody tr {
@@ -81,6 +83,16 @@
     padding: 10px;
     border: none;
   margin-left: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  }
+  select{
+    height: 70px;
+  }
+  th , td{
+    border: .0px solid black;
+
+    text-align: left;
   }
   @media (max-width: 768px) {
     .table thead {

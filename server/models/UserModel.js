@@ -21,3 +21,19 @@ export const findUserByUsername = async (username) => {
 };
  
  
+
+export const getAllUsers= async (req , res) => {
+   
+  const query = `
+    SELECT  *
+    FROM  users
+     
+  `;
+
+ 
+  
+  const { rows } = await pool.query(query);
+ 
+  return rows; // Return the leads data
+ 
+};

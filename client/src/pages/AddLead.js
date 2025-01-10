@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addLead } from "../redux/actions/leadActions";
 import './AddLead.css'; // Ensure you have styles if needed
+import Button from "../components/Button";
 
 const AddLead = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const AddLead = () => {
     budget: "",
     notes: "",
     followUpDate: "",
+    partnerReferralEmail: "",
   });
 
   const handleChange = (e) => {
@@ -43,17 +45,19 @@ const AddLead = () => {
       budget: "",
       notes: "",
       followUpDate: "",
+      partnerReferralEmail: "",
     });
   };
+  console.log(leadData)
 
   return (
     <div className="container-fluid mt-5">
       <div className="row mb-4">
-        {/* <div className="col">
+        <div className="col">
           <h1 className="text-center text-primary">Add Customer Lead</h1>
-        </div> */}
+        </div>
       </div>
-      <div className='container-fluid formContainer mt-5'>
+      <div className='container-fluid formContainer mt-1  '>
       <form className='col-md-10' onSubmit={handleSubmit}>
         <div className="row contactUsFormInput">
           <div className="col-md-6">
@@ -128,9 +132,29 @@ const AddLead = () => {
               <option value="Website">Website</option>
               <option value="Call">Call</option>
               <option value="Email">Email</option>
+              <option value="Partner-Referral">Partner Referral </option>
+
+              
             </select>
           </div>
         </div>
+
+
+        {leadData.leadSource === "Partner-Referral" && (
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <input
+                  type="email"
+                  name="partnerReferralEmail"
+                  value={leadData.partnerReferralEmail}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Enter partner's email"
+                />
+              </div>
+            </div>
+          )}
+
 
         <div className="row mb-3">
           <div className="col-md-6">
@@ -173,17 +197,26 @@ const AddLead = () => {
               <option value="">Select service type</option>
               <option value="Digital Marketing">Digital Marketing</option>
               <option value="Website Development">Website Development</option>
+              <option value="Search engine optimization">  Search engine optimization</option>
+              <option value="Social Media Management">Social Media Management</option>
+
+              <option value="Business Needs">Business Needs</option>
+              <option value="Company Insights">Company Insights</option>
+
+              <option value="Other">Other</option>
+
             </select>
           </div>
           <div className="col-md-6">
              
             <input
-              type="number"
+              type="text"
               name="budget"
               value={leadData.budget}
               onChange={handleChange}
               className="form-control"
               placeholder="Enter budget"
+             
             />
           </div>
         </div>
@@ -213,9 +246,10 @@ const AddLead = () => {
         </div>
 
         <div className="text-center">
-          <button type="submit" className="btn btn-primary btn-lg">
+          {/* <button type="submit" className="btn btn-primary btn-lg">
             Add Lead
-          </button>
+          </button> */}
+          <Button label="Create Lead"></Button>
         </div>
       </form>
     </div>

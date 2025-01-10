@@ -78,6 +78,8 @@ const leadReducer = (state = initialState, action) => {
         ...state,
         stats: action.payload,
       };
+
+      
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/actions/authActions";
 import "./Register.css"; // Include CSS for styling
@@ -92,11 +92,17 @@ const Register = () => {
               required
             >
               <option value="">Select your role</option>
-              <option value="TeamMember">TeamMember</option>
-              <option value="Admin">Admin</option>
+              {/* <option value="TeamMember">TeamMember</option>
+              <option value="Admin">Admin</option> */}
+              
               <option value="Manager">Manager</option>
               <option value="Digital_Marketing_Team">Digital_Marketing_Team</option>
               <option value="Website_Development_Team">Website_Development_Team</option>
+              <option value="SEO_Team">  Search_engine_optimization</option>
+              <option value="Social_Media_Management_Team">Social_Media_Management_Team</option>
+
+              <option value="Business_Needs_Team">Business_Needs_Team</option>
+              <option value="Company_Insights_Team">Company_Insights_Team</option>
 
             </select>
           </div>
@@ -106,9 +112,9 @@ const Register = () => {
             Register
           </button>
         </form>
-        <p>
+        {/* <p>
           Already have an account? <Link to="/login">Login here</Link>
-        </p>
+        </p> */}
       </div>
 
       <div className="loginRightSide">

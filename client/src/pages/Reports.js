@@ -9,7 +9,7 @@ const Reports = () => {
       <div className="reportWrraperBtn">
         <Link to="/reports/date">
         <button 
-          className="btn  mb-3" 
+          className="mb-3" 
           onClick={() => handleReport('date')}
         >
           See Report by Date
@@ -17,7 +17,7 @@ const Reports = () => {
         </Link>
         <Link to="/reports/ByStatus">
         <button 
-          className="btn   mb-3" 
+          className="mb-3" 
           onClick={() => handleReport('status')}
         >
           See Report by Status
@@ -25,20 +25,30 @@ const Reports = () => {
         </Link>
         <Link to="/reports/ByServiceType">
         <button 
-          className="btn   mb-3" 
+          className="mb-3" 
           onClick={() => handleReport('serviceType')}
         >
           See Report by Service Type
         </button>
         </Link>
-
+<Link to="/reports/TodaysLeads/"> 
         <button 
-          className="btn   mb-3" 
+          className="mb-3" 
           onClick={() => handleReport('todaysLeads')}
         >
           See Today's Leads
         </button>
+        </Link>
+        {/* <Link to="/reports/date">
+        <button 
+          className="mb-3" 
+          onClick={() => handleReport('date')}
+        >
+          See Report by Date
+        </button>
+        </Link> */}
       </div>
+       
     </div>
   );
 };
