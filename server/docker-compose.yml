@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  backend:
+    image: backend:latest
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=haptiq
+      - DATABASE_NAME=project
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: haptiq
+      POSTGRES_DB: project
+    ports:
+      - "5433:5432"
+
+  frontend:
+    build:
+      context: ./frontend # Point to your frontend folder
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:3001 # Set backend URL for frontend to consume API
+    networks:
+      - frontend-backend-net
+
+networks:
+  frontend-backend-net:
+    driver: bridge

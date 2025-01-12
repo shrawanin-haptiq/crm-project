@@ -227,10 +227,12 @@ console.log(users)
                  
                 
 
-                {role !== "Digital_Marketing_Team" && <th>Actions</th>}
+                {!role == "Admin" || <th>Assign</th>}
                
                 <th>Status</th>
+                {role === "Admin" && (
                 <th>Other</th>
+                )}
               </tr>
             </thead>
             <tbody>

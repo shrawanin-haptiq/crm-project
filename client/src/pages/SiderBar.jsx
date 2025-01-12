@@ -130,7 +130,7 @@ const SideBar = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/reports">Reports</Link>
                 </li>
-              </ul>
+              </ul> 
               <ul className="navbar-nav ms-6">
                 <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle" to="#" id="userMenu" role="button" data-bs-toggle="dropdown">
